@@ -45,30 +45,29 @@
 
     /* Top bar */
     .topbar {
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--rule);
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(8px);
-      background: rgba(17, 18, 16, 0.95);
+      background: rgba(245, 242, 236, 0.92);
     }
     .topbar-inner {
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 32px; max-width: var(--max); margin: 0 auto;
     }
     .brand-logo {
-      display: block; height: 80px; width: auto;
+      display: block; height: 56px; width: auto;
     }
     .nav { display: flex; gap: 36px; align-items: center; font-size: 14px; }
-    .nav a { color: rgba(245,242,236,0.75); transition: color .2s; }
-    .nav a:hover { color: #b9d4c1; }
+    .nav a { color: var(--ink-soft); transition: color .2s; }
+    .nav a:hover { color: var(--accent); }
     .nav-cta {
-      border: 1px solid rgba(245,242,236,0.4); padding: 9px 18px;
+      border: 1px solid var(--ink); padding: 9px 18px;
       font-size: 14px; transition: all .2s;
-      color: var(--paper);
     }
-    .nav-cta:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .nav-cta:hover { background: var(--ink); color: var(--paper); }
     .nav-mobile-toggle {
       display: none; background: none; border: none;
-      font-size: 22px; cursor: pointer; color: var(--paper);
+      font-size: 22px; cursor: pointer; color: var(--ink);
     }
 
     /* Hero */
@@ -283,7 +282,7 @@
     @media (max-width: 880px) {
       .container { padding: 0 24px; }
       .topbar-inner { padding: 12px 24px; }
-      .brand-logo { height: 56px; }
+      .brand-logo { height: 44px; }
       .nav { display: none; }
       .nav-mobile-toggle { display: block; }
       .nav.open {
