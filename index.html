@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ShieldTech — Managed IT & Cybersecurity for American Business</title>
+  <title>ShieldTech — Managed IT &amp; Cybersecurity for American Business</title>
   <meta name="description" content="ShieldTech provides managed IT, cybersecurity, cloud, and help desk services to small and mid-sized businesses across the United States.">
 
-  <meta property="og:title" content="ShieldTech — Managed IT & Cybersecurity">
+  <meta property="og:title" content="ShieldTech — Managed IT &amp; Cybersecurity">
   <meta property="og:description" content="Calm, capable IT for American business. Nationwide service.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shieldtechus.com">
@@ -52,19 +52,10 @@
     }
     .topbar-inner {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 32px; max-width: var(--max); margin: 0 auto;
+      padding: 14px 32px; max-width: var(--max); margin: 0 auto;
     }
-    .brand {
-      font-family: "Fraunces", serif; font-size: 22px; font-weight: 500;
-      letter-spacing: -0.01em; display: inline-flex; align-items: baseline; gap: 6px;
-    }
-    .brand::before {
-      content: ""; width: 10px; height: 10px; background: var(--accent);
-      display: inline-block; transform: translateY(-2px); border-radius: 1px;
-    }
-    .brand em {
-      font-style: italic; color: var(--ink-quiet);
-      font-size: 14px; font-weight: 400; margin-left: 6px;
+    .brand-logo {
+      display: block; height: 56px; width: auto;
     }
     .nav { display: flex; gap: 36px; align-items: center; font-size: 14px; }
     .nav a { color: var(--ink-soft); transition: color .2s; }
@@ -290,7 +281,8 @@
 
     @media (max-width: 880px) {
       .container { padding: 0 24px; }
-      .topbar-inner { padding: 16px 24px; }
+      .topbar-inner { padding: 12px 24px; }
+      .brand-logo { height: 44px; }
       .nav { display: none; }
       .nav-mobile-toggle { display: block; }
       .nav.open {
@@ -316,12 +308,14 @@
 
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="#" class="brand">ShieldTech<em>est. United States</em></a>
+      <a href="#" aria-label="ShieldTech home">
+        <img src="logo.png" alt="ShieldTech" class="brand-logo">
+      </a>
       <nav class="nav" id="nav">
         <a href="#services">Services</a>
         <a href="#why">Why ShieldTech</a>
         <a href="#contact">Contact</a>
-        <a href="tel:+15555555555" class="nav-cta">Call (555) 555-5555</a>
+        <a href="tel:+13342093344" class="nav-cta">334-209-3344</a>
       </nav>
       <button class="nav-mobile-toggle" aria-label="Menu" id="menuToggle">☰</button>
     </div>
@@ -466,15 +460,15 @@
       <div class="section-head reveal">
         <div class="section-eyebrow">Get in touch</div>
         <h2>Tell us what <em>isn't working.</em></h2>
-        <p>Most conversations start with a problem. Send a note, book a call, or just pick up the phone — whichever's easiest. We answer all three.</p>
+        <p>Most conversations start with a problem. Send a note or just pick up the phone — whichever's easiest. We answer both.</p>
       </div>
 
       <div class="contact-grid">
         <dl class="contact-info reveal">
-          <dt>Phone</dt><dd><a href="tel:+15555555555">(555) 555-5555</a></dd>
-          <dt>Email</dt><dd><a href="mailto:hello@shieldtechus.com">hello@shieldtechus.com</a></dd>
-          <dt>Book a call</dt><dd><a href="#" id="bookCta">Schedule 30 minutes →</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+13342093344">334-209-3344</a></dd>
+          <dt>Email</dt><dd><a href="mailto:info@shieldtechus.com">info@shieldtechus.com</a></dd>
           <dt>Service area</dt><dd>Nationwide, United States</dd>
+          <dt>Hours</dt><dd>24/7 emergency response</dd>
         </dl>
 
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal">
@@ -532,19 +526,18 @@
           <ul>
             <li><a href="#why">Why ShieldTech</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#">Careers</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Reach us</h4>
           <ul>
-            <li><a href="tel:+15555555555">(555) 555-5555</a></li>
-            <li><a href="mailto:hello@shieldtechus.com">hello@shieldtechus.com</a></li>
+            <li><a href="tel:+13342093344">334-209-3344</a></li>
+            <li><a href="mailto:info@shieldtechus.com">info@shieldtechus.com</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> ShieldTech US. All rights reserved.</span>
+        <span>© <span id="year"></span> ShieldTech US. All rights reserved.</span>
         <span><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
       </div>
     </div>
