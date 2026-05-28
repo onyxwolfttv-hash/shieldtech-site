@@ -117,6 +117,19 @@
       margin-bottom: 10px;
     }
     .post-card-meta .sep { color: var(--ink-quiet); margin: 0 8px; }
+    .new-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      background: var(--accent);
+      color: var(--paper);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
     .post-card h2 {
       font-size: 26px;
       margin-bottom: 12px;
@@ -269,6 +282,12 @@
       return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
+    function isNew(post) {
+      const ts = (post.publishedAt?.toMillis?.() || post.updatedAt?.toMillis?.() || 0);
+      if (!ts) return false;
+      return Date.now() - ts < 7 * 24 * 60 * 60 * 1000;
+    }
+
     function escapeHTML(s) {
       return String(s || '').replace(/[&<>"']/g, c => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -303,7 +322,7 @@
         return `
           <a href="/post.html?slug=${slug}" class="post-card">
             <div class="${imgClass}">${img}</div>
-            <div class="post-card-meta">${category}</div>
+            <div class="post-card-meta">${isNew(p) ? '<span class="new-badge">New</span>' : ''}${category}</div>
             <h2>${title}</h2>
             <p class="post-card-excerpt">${excerpt}${excerpt.length >= 200 ? '...' : ''}</p>
             <div class="post-card-foot">

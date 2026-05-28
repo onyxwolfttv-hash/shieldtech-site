@@ -431,7 +431,7 @@
       <div class="nav-left">
         <a href="#services">Services</a>
         <a href="#why">Why ShieldTech</a>
-        <a href="/blog">Blog</a>
+        <a href="/blog" class="nav-blog-link">Blog<span class="nav-new-pill">New</span></a>
         <a href="#contact">Contact</a>
       </div>
       <a href="#" aria-label="ShieldTech home">
@@ -614,6 +614,32 @@
       color: var(--ink-quiet);
     }
     .post-preview-body { padding: 24px; }
+    .new-badge-home {
+      display: inline-block;
+      padding: 3px 9px;
+      background: var(--accent);
+      color: var(--paper);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .nav-blog-link { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-new-pill {
+      display: inline-block;
+      padding: 2px 7px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      line-height: 1.2;
+    }
     .post-preview-cat {
       font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent); font-weight: 500;
@@ -667,6 +693,12 @@
     const db = getFirestore(app);
     const root = document.getElementById('posts-preview');
 
+    function isNew(post) {
+      const ts = (post.publishedAt?.toMillis?.() || post.updatedAt?.toMillis?.() || 0);
+      if (!ts) return false;
+      return Date.now() - ts < 7 * 24 * 60 * 60 * 1000;
+    }
+
     function escapeHTML(s) {
       return String(s || '').replace(/[&<>"']/g, c => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -711,7 +743,7 @@
           return `<a href="/post.html?slug=${slug}" class="post-preview-card">
             <div class="${imgClass}">${img}</div>
             <div class="post-preview-body">
-              <div class="post-preview-cat">${category}</div>
+              <div class="post-preview-cat">${isNew(p) ? '<span class="new-badge-home">New</span>' : ''}${category}</div>
               <h3>${title}</h3>
               <p>${excerpt}${excerpt.length >= 140 ? '...' : ''}</p>
               ${date ? `<div class="post-preview-foot">${date}</div>` : ''}
